@@ -1,0 +1,41 @@
+<p>
+  <mat-toolbar color="primary" class="center">
+    <span>Menú de Conversión de Medidas</span>
+  </mat-toolbar>
+</p>
+
+  <section class="center">
+    <br><br>
+    <div class="example-button-row">
+      <button mat-raised-button
+            matTooltip="Info about the action"
+            aria-label="Button that displays a tooltip when focused or hovered over" routerLink="/longitud">
+        Longitud
+      </button>
+
+      <br><br>
+
+      <button mat-raised-button
+            matTooltip="Info about the action"
+            aria-label="Button that displays a tooltip when focused or hovered over" routerLink="/masa">
+        Masa
+      </button>
+
+      <br><br>
+
+      <button mat-raised-button
+              matTooltip="Info about the action"
+              aria-label="Button that displays a tooltip when focused or hovered over" routerLink="/tiempo">
+        Tiempo
+      </button>
+    </div>
+  </section>
+
+<ng-container *ngIf="router.url !== '/'">
+  <section>
+    <div class="end">
+      <div class="example-label"></div>
+      <button mat-stroked-button color="primary" (click)="backToMenu()">Volver</button>
+    </div>
+  </section>
+</ng-container>

@@ -1,0 +1,36 @@
+<p>
+  <mat-toolbar color="primary" class="center">
+    <span>Información del estudiante</span>
+  </mat-toolbar>
+</p>
+
+<section class="center">
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-subtitle>Estudiante</mat-card-subtitle>
+    <mat-card-title>Brandon Stewart Diaz</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Carné: 3190-14-307</p>
+    <p>Correlativo: 1</p>
+    <p>Sección: A</p>
+    <p>Curso: Física I</p>
+    <p>Catedrático: Allan Gilberto Villatoro Diaz</p>
+    <mat-divider></mat-divider>
+  </mat-card-content>
+  <mat-card-footer>
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </mat-card-footer>
+</mat-card>
+</section>
+
+<br><br><br>
+
+<ng-container *ngIf="router.url !== '/menu'">
+  <section>
+    <div class="end">
+      <div class="example-label"></div>
+      <button mat-stroked-button color="primary" (click)="backToMenu()">Volver al menú</button>
+    </div>
+  </section>
+</ng-container>

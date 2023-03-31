@@ -1,0 +1,62 @@
+<p>
+  <mat-toolbar color="primary" class="center">
+    <span>Conversión de Tiempo</span>
+  </mat-toolbar>
+</p>
+
+<section class="center">
+  <div>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label for="tiempo">tiempo: </mat-label>
+        <input matInput placeholder="Ej. 500" id="tiempo" [(ngModel)]="tiempo" name="tiempo" pattern="^[0-9]+(\.[0-9]+)?$">
+        <div *ngIf="tiempo && tiempo.length > 0 && !tiempo.match('^[0-9]+(\.[0-9]+)?$')">Número no válido</div>
+      </mat-form-field>
+    </form>
+  </div>
+
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>De: </mat-label>
+      <mat-select [(ngModel)]="origen">
+        <mat-option value="segundos">Segundos</mat-option>
+        <mat-option value="minutos">Minutos</mat-option>
+        <mat-option value="horas">Horas</mat-option>
+        <mat-option value="dias">Días</mat-option>
+        <mat-option value="anios">Años</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>A: </mat-label>
+      <mat-select [(ngModel)]="destino">
+        <mat-option value="segundos">Segundos</mat-option>
+        <mat-option value="minutos">Minutos</mat-option>
+        <mat-option value="horas">Horas</mat-option>
+        <mat-option value="dias">Días</mat-option>
+        <mat-option value="anios">Años</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="example-label"></div>
+  <button mat-raised-button color="primary" (click)="convertirTiempo()">Convertir</button>
+</section>
+<div *ngIf="resultado" class="center">
+  <mat-card>
+    <mat-card-content>Resultado: {{resultado}}</mat-card-content>
+  </mat-card>
+</div>
+
+<br><br><br><br><br><br>
+
+<ng-container *ngIf="router.url !== '/menu'">
+  <section>
+    <div class="end">
+      <div class="example-label"></div>
+      <button mat-stroked-button color="primary" (click)="backToMenu()">Volver al menú</button>
+    </div>
+  </section>
+</ng-container>

@@ -1,0 +1,59 @@
+<p>
+  <mat-toolbar color="primary" class="center">
+    <span>Conversión de Masa</span>
+  </mat-toolbar>
+</p>
+<section class="center">
+  <div>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label for="masa">masa: </mat-label>
+        <input matInput placeholder="Ej. 500" id="masa" [(ngModel)]="masa" name="masa" pattern="^[0-9]+(\.[0-9]+)?$">
+        <div *ngIf="masa && masa.length > 0 && !masa.match('^[0-9]+(\.[0-9]+)?$')">Número no válido</div>
+      </mat-form-field>
+    </form>
+  </div>
+
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>De: </mat-label>
+      <mat-select [(ngModel)]="origen">
+        <mat-option value="kilogramos">Kilogramos</mat-option>
+        <mat-option value="gramos">Gramos</mat-option>
+        <mat-option value="libras">Libras</mat-option>
+        <mat-option value="onzas">Onzas</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>A: </mat-label>
+      <mat-select [(ngModel)]="destino">
+        <mat-option value="kilogramos">Kilogramos</mat-option>
+        <mat-option value="gramos">Gramos</mat-option>
+        <mat-option value="libras">Libras</mat-option>
+        <mat-option value="onzas">Onzas</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="example-label"></div>
+  <button mat-raised-button color="primary" (click)="convertirMasa()">Convertir</button>
+</section>
+<div *ngIf="resultado" class="center">
+  <mat-card>
+    <mat-card-content>Resultado: {{resultado}}</mat-card-content>
+  </mat-card>
+</div>
+
+<br><br><br><br><br><br>
+
+<ng-container *ngIf="router.url !== '/menu'">
+  <section>
+    <div class="end">
+      <div class="example-label"></div>
+      <button mat-stroked-button color="primary" (click)="backToMenu()">Volver al menú</button>
+    </div>
+  </section>
+</ng-container>

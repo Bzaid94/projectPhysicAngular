@@ -1,0 +1,63 @@
+<p>
+  <mat-toolbar color="primary" class="center">
+    <span>Conversión de Longitud</span>
+  </mat-toolbar>
+</p>
+<section class="center">
+<div>
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label for="longitud">Longitud: </mat-label>
+      <input matInput placeholder="Ej. 500" id="longitud" [(ngModel)]="longitud" name="longitud" pattern="^[0-9]+(\.[0-9]+)?$">
+      <div *ngIf="longitud && !longitud.match('^[0-9]+(\.[0-9]+)?$')">Número no válido</div>
+    </mat-form-field>
+  </form>
+</div>
+
+<div>
+  <mat-form-field appearance="fill">
+    <mat-label>De: </mat-label>
+    <mat-select [(ngModel)]="origen">
+      <mat-option value="metros">Metros</mat-option>
+      <mat-option value="kilometros">Kilometros</mat-option>
+      <mat-option value="millas">Millas</mat-option>
+      <mat-option value="pies">Pies</mat-option>
+      <mat-option value="pulgadas">Pulgadas</mat-option>
+      <mat-option value="centimetros">Centimetros</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div>
+  <mat-form-field appearance="fill">
+    <mat-label>A: </mat-label>
+    <mat-select [(ngModel)]="destino">
+      <mat-option value="metros">Metros</mat-option>
+      <mat-option value="kilometros">Kilometros</mat-option>
+      <mat-option value="millas">Millas</mat-option>
+      <mat-option value="pies">Pies</mat-option>
+      <mat-option value="pulgadas">Pulgadas</mat-option>
+      <mat-option value="centimetros">Centimetros</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+  <div class="example-label"></div>
+  <button mat-raised-button color="primary" (click)="convertirLongitud()">Convertir</button>
+</section>
+<div *ngIf="resultado" class="center">
+  <mat-card>
+    <mat-card-content>Resultado: {{resultado}}</mat-card-content>
+  </mat-card>
+</div>
+
+<br><br><br><br><br><br>
+
+<ng-container *ngIf="router.url !== '/menu'">
+  <section>
+    <div class="end">
+      <div class="example-label"></div>
+      <button mat-stroked-button color="primary" (click)="backToMenu()">Volver al menú</button>
+    </div>
+  </section>
+</ng-container>
