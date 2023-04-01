@@ -12,7 +12,16 @@ export class LongitudComponent {
   longitud!: string;
   origen!: string;
   destino!: string;
-  resultado!: number;
+  resultado!: string;
+
+  nombresUnidades : any = {
+    'metros': 'Metros',
+    'kilometros': 'Kilómetros',
+    'millas': 'Millas',
+    'pies': 'Pies',
+    'pulgadas': 'Pulgadas',
+    'centimetros': 'Centímetros'
+  }
 
   constructor(private httpClient: HttpClient, public router: Router) {
   }
@@ -21,7 +30,8 @@ export class LongitudComponent {
       + this.longitud + '/' + this.origen + '/' + this.destino;
 
     this.httpClient.get<number>(url).subscribe(result =>{
-      this.resultado = result;
+      const nombreDestino = this.nombresUnidades[this.destino];
+      this.resultado = `${result} ${nombreDestino}`;
     });
   }
 

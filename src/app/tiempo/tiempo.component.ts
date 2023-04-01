@@ -11,7 +11,15 @@ export class TiempoComponent {
   tiempo!: string;
   origen!: string;
   destino!: string;
-  resultado!: number;
+  resultado!: string;
+
+  unidadTiempo : any = {
+    'segundos': 'Segundos',
+    'minutos': 'Minutos',
+    'horas': 'Horas',
+    'dias': 'Días',
+    'anios': 'Años'
+  }
 
   constructor(private httpClient: HttpClient, public router: Router) {
   }
@@ -19,8 +27,10 @@ export class TiempoComponent {
   convertirTiempo() {
     const url = 'http://localhost:7777/conversion/convertTiempo/'
       + this.tiempo + '/' + this.origen + '/' + this.destino;
+
     this.httpClient.get<number>(url).subscribe(result =>{
-      this.resultado = result;
+      const nombreDestino = this.unidadTiempo[this.destino];
+      this.resultado = `${result} ${nombreDestino}`;
     });
   }
 
