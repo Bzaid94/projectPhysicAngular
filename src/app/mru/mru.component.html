@@ -1,0 +1,56 @@
+<p>
+  <mat-toolbar color="primary" class="center">
+    <span>Movimiento Rectilineo Uniforme</span>
+  </mat-toolbar>
+</p>
+
+<br><br><br>
+
+<section class="center">
+   <div>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label for="distancia">Distancia: </mat-label>
+        <input matInput placeholder="Ej. 50m" id="distancia" [(ngModel)]="distancia" name="distancia" pattern="^[0-9]+(\.[0-9]+)?$">
+        <div *ngIf="distancia && !distancia.match('^[0-9]+(\.[0-9]+)?$')">Número no válido</div>
+      </mat-form-field>
+    </form>
+  </div>
+
+  <div>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label for="velocidad">Velocidad: </mat-label>
+        <input matInput placeholder="Ej. 50m/s" id="velocidad" [(ngModel)]="velocidad" name="velocidad" pattern="^[0-9]+(\.[0-9]+)?$">
+        <div *ngIf="velocidad && !velocidad.match('^[0-9]+(\.[0-9]+)?$')">Número no válido</div>
+      </mat-form-field>
+    </form>
+  </div>
+
+  <div>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label for="tiempo">Tiempo: </mat-label>
+        <input matInput placeholder="Ej. 40s" id="tiempo" [(ngModel)]="tiempo" name="tiempo" pattern="^[0-9]+(\.[0-9]+)?$">
+        <div *ngIf="tiempo && !tiempo.match('^[0-9]+(\.[0-9]+)?$')">Número no válido</div>
+      </mat-form-field>
+    </form>
+  </div>
+
+  <div class="example-label"></div>
+  <button mat-raised-button color="primary" (click)="calcular()">Calcular MRU</button>
+</section>
+<div *ngIf="resultado" class="center">
+  <mat-card>
+    <mat-card-content>El resultado es: {{resultado}}</mat-card-content>
+  </mat-card>
+</div>
+
+<ng-container *ngIf="router.url !== '/menu'">
+  <section>
+    <div class="end">
+      <div class="example-label"></div>
+      <button mat-stroked-button color="primary" (click)="backToMenu()">Volver al menú</button>
+    </div>
+  </section>
+</ng-container>

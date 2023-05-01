@@ -4,19 +4,44 @@
   </mat-toolbar>
 </p>
 
-<br><br><br><br>
-
-<section class="center">
-  <mat-spinner></mat-spinner>
-</section>
-
 <br><br>
 
-<h2 class="center">
-  Trabajando para servirle mejor...
-</h2>
+<section class="center">
+  <br><br>
+  <div class="example-button-row">
+    <button mat-raised-button
+            matTooltip="Info about the action"
+            aria-label="Button that displays a tooltip when focused or hovered over" routerLink="/mru">
+      Movimiento Rectilineo Uniforme
+    </button>
 
-<br><br><br><br>
+    <br><br>
+
+    <button mat-raised-button
+            matTooltip="Info about the action"
+            aria-label="Button that displays a tooltip when focused or hovered over" routerLink="/mruv">
+      Movimiento Rectilineo Uniforme Variado
+    </button>
+
+    <br><br>
+
+    <button mat-raised-button
+            matTooltip="Info about the action"
+            aria-label="Button that displays a tooltip when focused or hovered over" routerLink="/mruv">
+      Primera Ley de Newton
+    </button>
+
+    <br><br>
+
+    <button mat-raised-button
+            matTooltip="Info about the action"
+            aria-label="Button that displays a tooltip when focused or hovered over" routerLink="/mruv">
+      Tercera Ley de Newton
+    </button>
+  </div>
+</section>
+
+<br><br><br>
 
 <ng-container *ngIf="router.url !== '/'">
   <section>

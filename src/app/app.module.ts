@@ -24,6 +24,8 @@ import {MatListModule} from "@angular/material/list";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { MenuFisicaComponent } from './menu-fisica/menu-fisica.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { MruComponent } from './mru/mru.component';
+import { MruvComponent } from './mruv/mruv.component';
 
 const routes: Routes = [
   { path: 'longitud', component: LongitudComponent },
@@ -33,6 +35,8 @@ const routes: Routes = [
   { path: 'menuPrincipal', component: MenuPrincipalComponent},
   { path: 'personalInformation', component: PersonalInformationComponent},
   { path: 'menuFisica', component: MenuFisicaComponent},
+  { path: 'mru', component: MruComponent},
+  { path: 'mruv', component: MruvComponent},
   { path: '**', redirectTo: 'menuPrincipal', pathMatch: 'full' }
 ];
 
@@ -45,7 +49,9 @@ const routes: Routes = [
     MenuConversionComponent,
     MenuPrincipalComponent,
     PersonalInformationComponent,
-    MenuFisicaComponent
+    MenuFisicaComponent,
+    MruComponent,
+    MruvComponent
   ],
   imports: [
     BrowserModule,
