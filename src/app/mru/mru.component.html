@@ -31,8 +31,8 @@
     <form class="example-form">
       <mat-form-field class="example-full-width">
         <mat-label for="distancia">Distancia: </mat-label>
-        <input matInput placeholder="Ej. 50 m" id="distancia" [(ngModel)]="distancia" name="distancia" pattern="^[0-9]+(\.[0-9]+)?$">
-        <div *ngIf="distancia && !distancia.match('^[0-9]+(\.[0-9]+)?$')">Número no válido</div>
+        <input matInput placeholder="Ej. 50 m" id="distancia" [(ngModel)]="distancia" name="distancia" pattern="^-?[0-9]+(\.[0-9]+)?$">
+        <div *ngIf="distancia && !distancia.match('^-?[0-9]+(\.[0-9]+)?$')">Número no válido</div>
       </mat-form-field>
     </form>
   </div>
@@ -41,8 +41,8 @@
     <form class="example-form">
       <mat-form-field class="example-full-width">
         <mat-label for="velocidad">Velocidad: </mat-label>
-        <input matInput placeholder="Ej. 50 m/s" id="velocidad" [(ngModel)]="velocidad" name="velocidad" pattern="^[0-9]+(\.[0-9]+)?$">
-        <div *ngIf="velocidad && !velocidad.match('^[0-9]+(\.[0-9]+)?$')">Número no válido</div>
+        <input matInput placeholder="Ej. 50 m/s" id="velocidad" [(ngModel)]="velocidad" name="velocidad" pattern="^-?[0-9]+(\.[0-9]+)?$">
+        <div *ngIf="velocidad && !velocidad.match('^-?[0-9]+(\.[0-9]+)?$')">Número no válido</div>
       </mat-form-field>
     </form>
   </div>
@@ -51,8 +51,8 @@
     <form class="example-form">
       <mat-form-field class="example-full-width">
         <mat-label for="tiempo">Tiempo: </mat-label>
-        <input matInput placeholder="Ej. 40 s" id="tiempo" [(ngModel)]="tiempo" name="tiempo" pattern="^[0-9]+(\.[0-9]+)?$">
-        <div *ngIf="tiempo && !tiempo.match('^[0-9]+(\.[0-9]+)?$')">Número no válido</div>
+        <input matInput placeholder="Ej. 40 s" id="tiempo" [(ngModel)]="tiempo" name="tiempo" pattern="^-?[0-9]+(\.[0-9]+)?$">
+        <div *ngIf="tiempo && !tiempo.match('^-?[0-9]+(\.[0-9]+)?$')">Número no válido</div>
       </mat-form-field>
     </form>
   </div>
