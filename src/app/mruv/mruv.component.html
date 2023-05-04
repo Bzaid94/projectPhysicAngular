@@ -4,64 +4,87 @@
   </mat-toolbar>
 </p>
 
-
-
-
-<form>
-  <label>Distancia:</label>
-  <label>
-    <input type="number" [(ngModel)]="mruv.distancia" name="distancia">
-  </label>
-
-  <label>Velocidad inicial:</label>
-  <label>
-    <input type="number" [(ngModel)]="mruv.velocidadInicial" name="velocidadInicial">
-  </label>
-
-  <label>Velocidad final:</label>
-  <label>
-    <input type="number" [(ngModel)]="mruv.velocidadFinal" name="velocidadFinal">
-  </label>
-
-  <label>Tiempo:</label>
-  <label>
-    <input type="number" [(ngModel)]="mruv.tiempo" name="tiempo">
-  </label>
-
-  <label>Aceleración:</label>
-  <label>
-    <input type="number" [(ngModel)]="mruv.aceleracion" name="aceleracion">
-  </label>
-
-  <button type="button" (click)="calcularMRUV()">Calcular MRUV</button>
-</form>
-
-<div *ngIf="resultadosArray">
-  <p *ngFor="let resultado of resultadosArray">{{resultado.key}}: {{resultado.value}} {{resultado.unidad}}</p>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-<br><br><br><br>
+<br><br><br>
 
 <section class="center">
-  <mat-spinner></mat-spinner>
+  <mat-card>
+  </mat-card>
+  <mat-card>
+    <mat-card-header>
+      <div mat-card-avatar></div>
+      <mat-card-title>MRUV</mat-card-title>
+      <mat-card-subtitle> Para calcular el resultado de un Movimiento Rectilíneo Uniforme Acelerado (MRUA) debes tener en cuenta:</mat-card-subtitle>
+      <mat-card-subtitle>Distancia (d), Tiempo (t), Velocidad inicial (Vi), Velocidad final (Vf) y Aceleracion (a)</mat-card-subtitle>
+    </mat-card-header>
+    <div mat-card-image></div>
+    <mat-card-content>
+      <p></p>
+    </mat-card-content>
+  </mat-card>
 </section>
 
-<br><br>
+<br><br><br>
 
-<h2 class="center">
-  Trabajando para servirle mejor...
-</h2>
+<section class="center">
+  <div>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label for="distancia">Distancia: </mat-label>
+        <input matInput placeholder="Ej. 50 m" id="distancia" [(ngModel)]="mruv.distancia" name="distancia" pattern="^-?[0-9]+(\.[0-9]+)?$">
+        <div *ngIf="mruv.distancia && !mruv.distancia.match('^-?[0-9]+(\.[0-9]+)?$')">Número no válido</div>
+      </mat-form-field>
+    </form>
+  </div>
+
+  <div>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label for="velocidadInicial">Velocidad Inicial: </mat-label>
+        <input matInput placeholder="Ej. 50 m/s" id="velocidadInicial" [(ngModel)]="mruv.velocidadInicial" name="velocidadInicial" pattern="^-?[0-9]+(\.[0-9]+)?$">
+        <div *ngIf="mruv.velocidadInicial && !mruv.velocidadInicial.match('^-?[0-9]+(\.[0-9]+)?$')">Número no válido</div>
+      </mat-form-field>
+    </form>
+  </div>
+
+  <div>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label for="velocidadFinal">Velocidad Final: </mat-label>
+        <input matInput placeholder="Ej. 50 m/s" id="velocidadFinal" [(ngModel)]="mruv.velocidadFinal" name="velocidadFinal" pattern="^-?[0-9]+(\.[0-9]+)?$">
+        <div *ngIf="mruv.velocidadFinal && !mruv.velocidadFinal.match('^-?[0-9]+(\.[0-9]+)?$')">Número no válido</div>
+      </mat-form-field>
+    </form>
+  </div>
+
+  <div>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label for="tiempo">Tiempo: </mat-label>
+        <input matInput placeholder="Ej. 5 s" id="tiempo" [(ngModel)]="mruv.tiempo" name="tiempo" pattern="^-?[0-9]+(\.[0-9]+)?$">
+        <div *ngIf="mruv.tiempo && !mruv.tiempo.match('^-?[0-9]+(\.[0-9]+)?$')">Número no válido</div>
+      </mat-form-field>
+    </form>
+  </div>
+
+  <div>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label for="aceleracion">Aceleación: </mat-label>
+        <input matInput placeholder="Ej. 10 m/s^2" id="aceleracion" [(ngModel)]="mruv.aceleracion" name="aceleracion" pattern="^-?[0-9]+(\.[0-9]+)?$">
+        <div *ngIf="mruv.aceleracion && !mruv.aceleracion.match('^-?[0-9]+(\.[0-9]+)?$')">Número no válido</div>
+      </mat-form-field>
+    </form>
+  </div>
+
+  <div class="example-label"></div>
+  <button mat-raised-button color="primary" (click)="calcularMRUV()">Calcular MRU</button>
+</section>
+
+<div *ngIf="resultadosArray" class="center">
+  <mat-card>
+    <mat-card-content *ngFor="let resultado of resultadosArray">{{resultado.key}}: {{resultado.value}} {{resultado.unidad}}</mat-card-content>
+  </mat-card>
+</div>
 
 <br><br><br><br>
 

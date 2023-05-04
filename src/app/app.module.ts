@@ -26,6 +26,7 @@ import { MenuFisicaComponent } from './menu-fisica/menu-fisica.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { MruComponent } from './mru/mru.component';
 import { MruvComponent } from './mruv/mruv.component';
+import { NewtonComponent } from './newton/newton.component';
 
 const routes: Routes = [
   { path: 'longitud', component: LongitudComponent },
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: 'menuFisica', component: MenuFisicaComponent},
   { path: 'mru', component: MruComponent},
   { path: 'mruv', component: MruvComponent},
+  { path: 'newton', component: NewtonComponent},
   { path: '**', redirectTo: 'menuPrincipal', pathMatch: 'full' }
 ];
 
@@ -51,7 +53,8 @@ const routes: Routes = [
     PersonalInformationComponent,
     MenuFisicaComponent,
     MruComponent,
-    MruvComponent
+    MruvComponent,
+    NewtonComponent
   ],
   imports: [
     BrowserModule,
