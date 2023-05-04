@@ -4,6 +4,58 @@
   </mat-toolbar>
 </p>
 
+
+
+
+<form>
+  <label>Distancia:</label>
+  <label>
+    <input type="number" [(ngModel)]="mruv.distancia" name="distancia">
+  </label>
+
+  <label>Velocidad inicial:</label>
+  <label>
+    <input type="number" [(ngModel)]="mruv.velocidadInicial" name="velocidadInicial">
+  </label>
+
+  <label>Velocidad final:</label>
+  <label>
+    <input type="number" [(ngModel)]="mruv.velocidadFinal" name="velocidadFinal">
+  </label>
+
+  <label>Velocidad media:</label>
+  <label>
+    <input type="number" [(ngModel)]="mruv.velocidadMedia" name="velocidadMedia">
+  </label>
+
+  <label>Tiempo:</label>
+  <label>
+    <input type="number" [(ngModel)]="mruv.tiempo" name="tiempo">
+  </label>
+
+  <label>Aceleración:</label>
+  <label>
+    <input type="number" [(ngModel)]="mruv.aceleracion" name="aceleracion">
+  </label>
+
+  <button type="button" (click)="calcularMRUV()">Calcular MRUV</button>
+</form>
+
+<div *ngIf="resultadosArray">
+  <p *ngFor="let resultado of resultadosArray">{{resultado.key}}: {{resultado.value}} {{resultado.unidad}}</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
 <br><br><br><br>
 
 <section class="center">

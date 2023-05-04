@@ -7,11 +7,31 @@
 <br><br><br>
 
 <section class="center">
+<mat-card>
+</mat-card>
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar></div>
+    <mat-card-title>MRU</mat-card-title>
+    <mat-card-subtitle>Para hallar el resultado en la calculadora de MRU,
+      debe digitar al menos 2 de las variables del movimiento rectilineo uniforme:</mat-card-subtitle>
+    <mat-card-subtitle>Distancia (d), tiempo (t) o velocidad (v).</mat-card-subtitle>
+  </mat-card-header>
+  <div mat-card-image></div>
+  <mat-card-content>
+    <p></p>
+  </mat-card-content>
+</mat-card>
+</section>
+
+<br><br><br>
+
+<section class="center">
    <div>
     <form class="example-form">
       <mat-form-field class="example-full-width">
         <mat-label for="distancia">Distancia: </mat-label>
-        <input matInput placeholder="Ej. 50m" id="distancia" [(ngModel)]="distancia" name="distancia" pattern="^[0-9]+(\.[0-9]+)?$">
+        <input matInput placeholder="Ej. 50 m" id="distancia" [(ngModel)]="distancia" name="distancia" pattern="^[0-9]+(\.[0-9]+)?$">
         <div *ngIf="distancia && !distancia.match('^[0-9]+(\.[0-9]+)?$')">Número no válido</div>
       </mat-form-field>
     </form>
@@ -21,7 +41,7 @@
     <form class="example-form">
       <mat-form-field class="example-full-width">
         <mat-label for="velocidad">Velocidad: </mat-label>
-        <input matInput placeholder="Ej. 50m/s" id="velocidad" [(ngModel)]="velocidad" name="velocidad" pattern="^[0-9]+(\.[0-9]+)?$">
+        <input matInput placeholder="Ej. 50 m/s" id="velocidad" [(ngModel)]="velocidad" name="velocidad" pattern="^[0-9]+(\.[0-9]+)?$">
         <div *ngIf="velocidad && !velocidad.match('^[0-9]+(\.[0-9]+)?$')">Número no válido</div>
       </mat-form-field>
     </form>
@@ -31,7 +51,7 @@
     <form class="example-form">
       <mat-form-field class="example-full-width">
         <mat-label for="tiempo">Tiempo: </mat-label>
-        <input matInput placeholder="Ej. 40s" id="tiempo" [(ngModel)]="tiempo" name="tiempo" pattern="^[0-9]+(\.[0-9]+)?$">
+        <input matInput placeholder="Ej. 40 s" id="tiempo" [(ngModel)]="tiempo" name="tiempo" pattern="^[0-9]+(\.[0-9]+)?$">
         <div *ngIf="tiempo && !tiempo.match('^[0-9]+(\.[0-9]+)?$')">Número no válido</div>
       </mat-form-field>
     </form>
@@ -42,9 +62,11 @@
 </section>
 <div *ngIf="resultado" class="center">
   <mat-card>
-    <mat-card-content>El resultado es: {{resultado}}</mat-card-content>
+    <mat-card-content>{{resultado}}</mat-card-content>
   </mat-card>
 </div>
+
+<br><br><br><br>
 
 <ng-container *ngIf="router.url !== '/menu'">
   <section>
